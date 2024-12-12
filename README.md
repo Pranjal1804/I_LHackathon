@@ -25,6 +25,7 @@ A decentralized platform for managing train and flight ticket bookings using blo
 - Node.js and npm
 - MetaMask Wallet
 - Ganache (or any Ethereum test network)
+- Django
 
 ### Steps
 
