@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect to MetaMask</title>
+    <style>
+        /* styles.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+button {
+    background-color: #f6851b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #e0761a;
+}
+
+#status {
+    margin-top: 20px;
+    font-size: 14px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="connectButton">Connect to MetaMask</button>
+        <div id="status"></div>
+    </div>
+    <script>
+        // app.js
+document.getElementById('connectButton').addEventListener('click', async () => {
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            // Request account access if needed
+            await ethereum.request({ method: 'eth_requestAccounts' });
+            
+            // Accounts now exposed
+            const accounts = await ethereum.request({ method: 'eth_accounts' });
+            document.getElementById('status').innerText = `Connected: ${accounts[0]}`;
+        } catch (error) {
+            console.error(error);
+            document.getElementById('status').innerText = 'Connection failed.';
+        }
+    } else {
+        document.getElementById('status').innerText = 'MetaMask is not installed.';
+    }
+});
+    </script>
+</body>
+</html>
