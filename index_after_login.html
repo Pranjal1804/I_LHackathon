@@ -174,26 +174,17 @@
             }
         }
     </style>
-    <script>
-        function index() {
-            window.open('index.html', '_blank');
-        }
-        function search() {
-            var category = document.getElementById('category').value;
-            var from = document.getElementById('from').value;
-            var to = document.getElementById('to').value;
-            var depart = document.getElementById('depart').value;
-            var returnDate = document.getElementById('return').value;
-            var searchParams = `category=${category}&from=${from}&to=${to}&depart=${depart}&return=${returnDate}`;
-            window.open('search.html?' + searchParams, '_blank');
-        }
-    </script>
+    
 </head>
 <body>
     <div class="header">
         <div class="header-bar">
             <h2>Travel Chain</h2>
-            <button id = "connect1" onclick="window.open('connect.html');">Connect Wallet</button>
+            <div>
+                <button id="connectButton">Connect to MetaMask</button>
+                <div id="status"></div>
+            </div>
+            
             <button id="logout" >Log out</button>
         </div>
     </div>
@@ -242,5 +233,38 @@
             </div>
         </div>
     </div>
+    <script>
+        function index() {
+            window.open('index.html', '_blank');
+        }
+        function search() {
+            var category = document.getElementById('category').value;
+            var from = document.getElementById('from').value;
+            var to = document.getElementById('to').value;
+            var depart = document.getElementById('depart').value;
+            var returnDate = document.getElementById('return').value;
+            var searchParams = `category=${category}&from=${from}&to=${to}&depart=${depart}&return=${returnDate}`;
+            window.open('search.html?' + searchParams, '_blank');
+        }
+
+        // app.js
+    document.getElementById('connectButton').addEventListener('click', async () => {
+        if (typeof window.ethereum !== 'undefined') {
+            try {
+            // Request account access if needed
+                await ethereum.request({ method: 'eth_requestAccounts' });
+            
+            // Accounts now exposed
+                const accounts = await ethereum.request({ method: 'eth_accounts' });
+                document.getElementById('status').innerText = `Connected: ${accounts[0]}`;
+            } catch (error) {
+                console.error(error);
+                document.getElementById('status').innerText = 'Connection failed.';
+            }
+    } else {
+        document.getElementById('status').innerText = 'MetaMask is not installed.';
+    }
+});
+    </script>
 </body>
 </html>
