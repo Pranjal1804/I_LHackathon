@@ -24,93 +24,150 @@
             background-color: rgba(0, 0, 0, 0.321);
             backdrop-filter: blur(4px);
             display: flex;
-            justify-content: end;
-            align-items: end;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
             height: 8vh;
         }
-        .header-bar button {
-            background-color: rgb(0, 0, 0);
-            height: 7vh;
-            margin: 5px 15px 5px 5px;
+        .header-bar h2 {
+            color: #fff;
             font-size: 20px;
-            width: 130px;
+            text-shadow: -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+        .header-bar button {
+            background-color: #000;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 5px 15px;
+            transition: background-color 0.3s ease-in-out;
         }
         .header-bar button:hover {
-            background-color: rgb(52, 51, 51);
+            background-color: #333;
+        }
+        .name {
+            text-align: center;
+            color: #f4f4f4;
+            font-size: 25px;
+            margin-top: 20px;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         }
         .search-bar {
             position: absolute;
-            backdrop-filter: blur(4px);
-            top: 67%;  /* Center vertically in the header, adjust as necessary */
+            top: 65%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Center align the search bar */
-            width: 90%; /* Adjust width as necessary */
+            transform: translate(-50%, -50%);
+            width: 90%;
             padding: 20px;
-            background: rgba(31, 30, 30, 0.289); /* Semi-transparent background */
-            text-align: center;
+            margin-top: -5px;
+            background: rgba(31, 30, 30, 0.8);
             box-sizing: border-box;
-            border-radius: 8px; /* Optional: adds rounded corners to the search bar */
-            transition: background-color 0.3s ease-in-out;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
         input[type="text"], input[type="date"], select, button {
             padding: 10px;
             margin: 5px;
             border-radius: 4px;
-            width: 15%;
+            border: none;
+            width: 100%;
+            max-width: 300px;
             transition: all 0.3s ease-in-out;
         }
         button {
             background-color: #007bff;
             font-size: 15px;
             color: white;
-            border: none;
             cursor: pointer;
-            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out;
         }
         button:hover {
             background-color: #0056b3;
-            transform: scale(1.05);
         }
         .explore {
             padding: 20px;
             text-align: center;
-            font-size: 24px;
+            font-size: 20px;
             color: #333;
-            transition: color 0.3s ease-in-out;
         }
         .tour-container {
             display: flex;
-            overflow-x: auto;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
             padding: 10px;
-            white-space: nowrap;
             background: #fff;
-            justify-content: center; /* This centers the cards horizontally */
-            transition: background-color 0.3s ease-in-out;
         }
         .tour-card {
-            display: inline-block;
-            width: 300px;
-            margin: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             overflow: hidden;
-            vertical-align: top;
-            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
         .tour-card:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .tour-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            transition: opacity 0.3s ease-in-out;
         }
         .tour-info {
             padding: 15px;
             text-align: center;
-            transition: padding 0.3s ease-in-out;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header {
+                height: 100vh;
+            }
+            .header-bar h2 {
+                font-size: 18px;
+            }
+            .name {
+                font-size: 20px;
+            }
+            .search-bar {
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 100vh;
+            }
+            input[type="text"], input[type="date"], select, button {
+                width: 90%;
+            }
+        }
+        @media (max-width: 480px) {
+            .header {
+                height: 100vh;
+            }
+            .header-bar h2 {
+                font-size: 16px;
+            }
+            .name {
+                font-size: 18px;
+            }
+            button {
+                font-size: 14px;
+            }
+            .explore{
+                top: 400px;
+            }
+            .tour-container{
+                top:450px
+            }
+            .tour-card{
+                top: 500px;
+            }
         }
     </style>
     <script>
@@ -131,6 +188,7 @@
 <body>
     <div class="header">
         <div class="header-bar">
+            <h2>Travel Chain</h2>
             <button id="logout" >Log out</button>
         </div>
     </div>
@@ -157,21 +215,21 @@
     </div>
     <div class="explore">Explore Popular Places</div>
     <div class="tour-container">
-        <div class="tour-card">
+        <div class="tour-card" onclick="window.open('paris_info.html','_blank')">
             <img src="https://thumbs.dreamstime.com/b/paris-eiffel-tower-river-seine-sunset-france-one-most-iconic-landmarks-107376702.jpg" alt="Paris">
             <div class="tour-info">
                 <h3>Paris</h3>
                 <p>Visit the city of lights and love.</p>
             </div>
         </div>
-        <div class="tour-card">
+        <div class="tour-card" onclick="window.open('tokyo_info.html','_blank')">
             <img src="https://media.istockphoto.com/id/876560704/photo/fuji-japan-in-spring.jpg?s=612x612&w=0&k=20&c=j1VZlzfNcsjQ4q4yHXJEohSrBZJf6nUhh2_smM4eioQ=" alt="Tokyo">
             <div class="tour-info">
                 <h3>Tokyo</h3>
                 <p>Experience the vibrant culture and technology.</p>
             </div>
         </div>
-        <div class="tour-card">
+        <div class="tour-card" onclick="window.open('newyork_info.html','_blank')">
             <img src="https://media.istockphoto.com/id/1454217037/photo/statue-of-liberty-and-new-york-city-skyline-with-manhattan-financial-district-world-trade.jpg?s=612x612&w=0&k=20&c=6V54_qVlDfo59GLEdY2W8DOjLbbHTJ9y4AnJ58a3cis=" alt="New York">
             <div class="tour-info">
                 <h3>New York</h3>
