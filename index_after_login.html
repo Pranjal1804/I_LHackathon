@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .header {
+            position: relative;
+            width: 100%;
+            height: 75vh;
+            background: url('landing_background.jpg') no-repeat center center/cover;
+            transition: height 0.3s ease-in-out;
+        }
+        .header-bar {
+            background-color: rgba(0, 0, 0, 0.321);
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: end;
+            align-items: end;
+            height: 8vh;
+        }
+        .header-bar button {
+            background-color: rgb(0, 0, 0);
+            height: 7vh;
+            margin: 5px 15px 5px 5px;
+            font-size: 20px;
+            width: 130px;
+        }
+        .header-bar button:hover {
+            background-color: rgb(52, 51, 51);
+        }
+        .search-bar {
+            position: absolute;
+            backdrop-filter: blur(4px);
+            top: 67%;  /* Center vertically in the header, adjust as necessary */
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center align the search bar */
+            width: 90%; /* Adjust width as necessary */
+            padding: 20px;
+            background: rgba(31, 30, 30, 0.289); /* Semi-transparent background */
+            text-align: center;
+            box-sizing: border-box;
+            border-radius: 8px; /* Optional: adds rounded corners to the search bar */
+            transition: background-color 0.3s ease-in-out;
+        }
+        input[type="text"], input[type="date"], select, button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 4px;
+            width: 15%;
+            transition: all 0.3s ease-in-out;
+        }
+        button {
+            background-color: #007bff;
+            font-size: 15px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .explore {
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            transition: color 0.3s ease-in-out;
+        }
+        .tour-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px;
+            white-space: nowrap;
+            background: #fff;
+            justify-content: center; /* This centers the cards horizontally */
+            transition: background-color 0.3s ease-in-out;
+        }
+        .tour-card {
+            display: inline-block;
+            width: 300px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            vertical-align: top;
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .tour-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .tour-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tour-info {
+            padding: 15px;
+            text-align: center;
+            transition: padding 0.3s ease-in-out;
+        }
+    </style>
+    <script>
+        function index() {
+            window.open('index.html', '_blank');
+        }
+        function search() {
+            var category = document.getElementById('category').value;
+            var from = document.getElementById('from').value;
+            var to = document.getElementById('to').value;
+            var depart = document.getElementById('depart').value;
+            var returnDate = document.getElementById('return').value;
+            var searchParams = `category=${category}&from=${from}&to=${to}&depart=${depart}&return=${returnDate}`;
+            window.open('search.html?' + searchParams, '_blank');
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="header-bar">
+            <button onclick="index()">Log out</button>
+        </div>
+    </div>
+    <div class="search-bar">
+        <select id="category">
+            <option value="flights">Flights</option>
+            <option value="trains">Trains</option>
+        </select>
+        <select id="from">
+            <option value="">From</option>
+            <option value="New York">New York</option>
+            <option value="Tokyo">Tokyo</option>
+            <option value="Paris">Paris</option>
+        </select>
+        <select id="to">
+            <option value="">To</option>
+            <option value="New York">New York</option>
+            <option value="Tokyo">Tokyo</option>
+            <option value="Paris">Paris</option>
+        </select>
+        <input type="date" id="depart">
+        <input type="date" id="return">
+        <button onclick="search()">Search</button>
+    </div>
+    <div class="explore">Explore Popular Places</div>
+    <div class="tour-container">
+        <div class="tour-card">
+            <img src="https://thumbs.dreamstime.com/b/paris-eiffel-tower-river-seine-sunset-france-one-most-iconic-landmarks-107376702.jpg" alt="Paris">
+            <div class="tour-info">
+                <h3>Paris</h3>
+                <p>Visit the city of lights and love.</p>
+            </div>
+        </div>
+        <div class="tour-card">
+            <img src="https://media.istockphoto.com/id/876560704/photo/fuji-japan-in-spring.jpg?s=612x612&w=0&k=20&c=j1VZlzfNcsjQ4q4yHXJEohSrBZJf6nUhh2_smM4eioQ=" alt="Tokyo">
+            <div class="tour-info">
+                <h3>Tokyo</h3>
+                <p>Experience the vibrant culture and technology.</p>
+            </div>
+        </div>
+        <div class="tour-card">
+            <img src="https://media.istockphoto.com/id/1454217037/photo/statue-of-liberty-and-new-york-city-skyline-with-manhattan-financial-district-world-trade.jpg?s=612x612&w=0&k=20&c=6V54_qVlDfo59GLEdY2W8DOjLbbHTJ9y4AnJ58a3cis=" alt="New York">
+            <div class="tour-info">
+                <h3>New York</h3>
+                <p>The city that never sleeps, from Broadway to Wall Street.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

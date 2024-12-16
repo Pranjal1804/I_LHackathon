@@ -171,10 +171,14 @@ button:hover {
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password">
 
-        <button>Sign Up</button>
+        <button onclick="login()">Sign Up</button>
     </form>
     <canvas id="bg" id="canvas1"></canvas>
     
-    <script type="module" src="/src/main.js"></script>
+    <script>
+        function login() {
+            window.open('login.html', '_blank');
+        }
+    </script>
 </body>
 </html>
