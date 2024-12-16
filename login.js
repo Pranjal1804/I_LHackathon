@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((userCredential) => {
           const user = userCredential.user;
           alert("Logged In successfully!");
+          window.location.href = 'index_after_login.html';
         })
         .catch((error) => {
           const errorCode = error.code;
