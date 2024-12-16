@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Paris - City of Light</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        body {
+            background: url('https://img.freepik.com/premium-photo/vibrant-sunset-view-iconic-paris-landmark_952286-30692.jpg') no-repeat center center/cover;
+            backdrop-filter: blur(2.5px);
+
+        }
+        .hero-image {
+            background-position: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .section-hover {
+            background-color: rgba(255, 255, 255, 0.438);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="container mx-auto px-4">
+        <header class="hero-image h-96 flex items-center justify-center mb-12 rounded-lg shadow-lg">
+            <h1 class="text-5xl font-bold text-white bg-white bg-opacity-20 p-4 rounded">Paris: City of Light</h1>
+        </header>
+
+        <main class="grid md:grid-cols-2 gap-8">
+            <section class="section-hover bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-3xl font-semibold mb-4">About Paris</h2>
+                <p>Paris, the capital of France, is a global center of art, fashion, gastronomy, and culture. Known as the "City of Light," it boasts iconic landmarks like the Eiffel Tower, Louvre Museum, and Notre-Dame Cathedral.</p>
+            </section>
+
+            <section class="section-hover bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-3xl font-semibold mb-4">Top Attractions</h2>
+                <ul class="list-disc pl-5">
+                    <li>Eiffel Tower</li>
+                    <li>Louvre Museum</li>
+                    <li>Notre-Dame Cathedral</li>
+                    <li>Champs-Élysées</li>
+                    <li>Montmartre</li>
+                </ul>
+            </section>
+
+            <section class="section-hover bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-3xl font-semibold mb-4">Culinary Delights</h2>
+                <p>Paris is a paradise for food lovers. From delicate pastries like croissants and macarons to exquisite cuisine in Michelin-starred restaurants, the city offers an unparalleled gastronomic experience.</p>
+            </section>
+
+            <section class="section-hover bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-3xl font-semibold mb-4">Travel Tips</h2>
+                <ul class="list-disc pl-5">
+                    <li>Best time to visit: April-June and September-November</li>
+                    <li>Use the Metro for transportation</li>
+                    <li>Learn basic French phrases</li>
+                    <li>Purchase a Paris Museum Pass</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
