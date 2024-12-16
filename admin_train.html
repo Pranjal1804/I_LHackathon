@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Trains</title>
+    <script>
+        async function addFlight() {
+            const flightData = {
+                airline: document.getElementById('airline').value,
+                origin: document.getElementById('origin').value,
+                destination: document.getElementById('destination').value,
+                departure_time: document.getElementById('departure-time').value,
+                arrival_time: document.getElementById('arrival-time').value,
+                total_seats: document.getElementById('total-seats').value,
+                price: document.getElementById('price').value,
+                flight_class: document.getElementById('flight-class').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:5000/admin/add-flight', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(flightData)
+                });
+
+                const result = await response.json();
+                alert(result.message);
+            } catch (error) {
+                console.error('Error adding flight:', error);
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('login_background.jpeg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        form {
+            background: #ffffff36;
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 30vw;
+            padding: 40px;
+        }
+
+        input, select, button {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+        }
+
+        button {
+            background-color: #343434;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #545655;
+        }
+
+        input:focus, select:focus {
+            border-color: #333;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Train</h1>
+        <form onsubmit="event.preventDefault(); addFlight();">
+            <input id="Operator" placeholder="Operator" required>
+            <input id="origin" placeholder="Origin" required>
+            <input id="destination" placeholder="Destination" required>
+            <input id="departure-time" type="datetime-local" required>
+            <input id="arrival-time" type="datetime-local" required>
+            <input id="total-seats" type="number" placeholder="Total Seats" required>
+            <input id="price" type="number" step="0.01" placeholder="Price" required>
+            <select id="train-class">
+                <option value="3A">3A</option>
+                <option value="2A">2A</option>
+                <option value="1A">1A</option>
+                <option value="CC">CC</option>
+            </select>
+            <button type="submit">Add Train</button>
+        </form>
+    </div>
+</body>
+</html>
