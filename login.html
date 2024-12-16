@@ -172,9 +172,9 @@ button:hover {
         <input type="password" placeholder="Password" id="password" required>
 
 <<<<<<< HEAD
-        <button type="submit">Log In</button>
+        <button type="submit" onclick="loggedin()">Log In</button>
 =======
-        <button id="submit">Log In</button>
+        <button id="submit" onclick="loggedin()">Log In</button>
 >>>>>>> f9d133a27e882df8990db29ac827766b4599e0ae
         <div class="seperator"></div>
         <div class="social">
@@ -189,13 +189,9 @@ button:hover {
     <canvas id="bg" id="canvas1"></canvas>
     
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-            //validation or authentication logic
-
-            // If login is successful, redirect to index_after_login.html
-            window.location.href = 'index_after_login.html';
-        });
+        function loggedin() {
+            window.open('index_after_login.html', '_blank');
+        }
     </script>
 </body>
 </html>
