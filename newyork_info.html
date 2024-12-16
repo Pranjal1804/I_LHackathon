@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore New York - The City That Never Sleeps</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        body {
+            background: url('https://media1.thrillophilia.com/filestore/c4ni2omlub5zmr584o2bkeegrc9e_shutterstock_2142178205.jpg') no-repeat center center/cover;
+            backdrop-filter: blur(1px);
+        }
+        .hero-image {
+            background-position: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .section-hover {
+            background-color: rgba(255, 255, 255, 0.438);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="container mx-auto px-4">
+        <header class="hero-image h-96 flex items-center justify-center mb-12 rounded-lg shadow-lg">
+            <h1 class="text-5xl font-bold text-grey bg-white bg-opacity-50 p-4 rounded">New York: The City That Never Sleeps</h1>
+        </header>
+
+        <main class="grid md:grid-cols-2 gap-8">
+            <section class="section-hover bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-3xl font-semibold mb-4">About New York</h2>
+                <p>New York City is a global metropolis that embodies diversity, culture, and endless possibilities. A melting pot of cultures, the city offers an unparalleled urban experience with its iconic skyscrapers, world-class museums, vibrant neighborhoods, and dynamic arts scene that attracts millions of visitors annually.</p>
+            </section>
+
+            <section class="section-hover bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-3xl font-semibold mb-4">Top Attractions</h2>
+                <ul class="list-disc pl-5">
+                    <li>Statue of Liberty</li>
+                    <li>Central Park</li>
+                    <li>Empire State Building</li>
+                    <li>Metropolitan Museum of Art</li>
+                    <li>Times Square</li>
+                </ul>
+            </section>
+
+            <section class="section-hover bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-3xl font-semibold mb-4">Culinary Diversity</h2>
+                <p>New York's culinary landscape is a reflection of its incredible diversity. From world-famous pizza and bagels to haute cuisine and authentic international restaurants, the city offers an extraordinary gastronomic adventure that spans cultures, neighborhoods, and culinary traditions.</p>
+            </section>
+
+            <section class="section-hover bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-3xl font-semibold mb-4">Travel Tips</h2>
+                <ul class="list-disc pl-5">
+                    <li>Best time to visit: April-June and September-November</li>
+                    <li>Use the subway for transportation</li>
+                    <li>Get a CityPASS for attractions</li>
+                    <li>Explore different neighborhoods</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
