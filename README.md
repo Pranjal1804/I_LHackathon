@@ -49,11 +49,12 @@ A decentralized platform for managing train and flight ticket bookings using blo
    ```
 
 5. Start the Node Server
-      ```bash
+   ```bash
     node server.js
   ```
+
 6. To Run the project
-         ```bash
+   ```bash
     run index.html in the live server
   ```
 
