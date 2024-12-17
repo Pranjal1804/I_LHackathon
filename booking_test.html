@@ -16,12 +16,9 @@
         <header class="neumorphic p-4 mb-8">
             <div class="flex justify-between items-center">
                 <h1 class="text-2xl font-bold text-gray-700">Web3 Travel Booking</h1>
-                <div class="flex items-center space-x-4">
-                    <button id="connectWallet" class="neumorphic px-6 py-2 text-blue-600 font-medium">
-                        Connect Wallet
-                    </button>
-                    <p id="status" class="text-gray-600 mt-0"></p>
-                </div>
+                <button id="connectWallet" onclick="connectWallet()" class="neumorphic px-6 py-2 text-blue-600 font-medium">
+                    Connect Wallet
+                </button>
             </div>
         </header>
 
@@ -31,10 +28,6 @@
             <section class="neumorphic p-6">
                 <h2 class="text-xl font-semibold mb-4 text-gray-700">Search Flights</h2>
                 <div class="grid md:grid-cols-3 gap-4">
-                    <select id="category">
-                        <option value="flights">Flights</option>
-                        <option value="trains">Trains</option>
-                    </select>
                     <div class="neumorphic-inset p-3">
                         <input type="text" placeholder="From" class="w-full bg-transparent p-2 outline-none" id="from">
                     </div>
@@ -44,7 +37,6 @@
                     <div class="neumorphic-inset p-3">
                         <input type="date" class="w-full bg-transparent p-2 outline-none" id="date">
                     </div>
-                    <input type="date" id="return">
                 </div>
                 <button onclick="searchFlights()" class="neumorphic mt-4 px-6 py-2 text-blue-600 font-medium">
                     Search Flights
@@ -64,6 +56,7 @@
                 <h2 class="text-xl font-semibold mb-4 text-gray-700">Booking Confirmation</h2>
                 <div id="bookingDetails" class="space-y-2">
                     <!-- Booking details will be populated here -->
+
                 </div>
             </section>
         </main>
@@ -74,25 +67,6 @@
         </div>
     </div>
 
-    <script >
-        document.getElementById('connectWallet').addEventListener('click', async () => {
-    if (typeof window.ethereum !== 'undefined') {
-        try {
-            // Request account access if needed
-            await ethereum.request({ method: 'eth_requestAccounts' });
-            
-            // Accounts now exposed
-            const accounts = await ethereum.request({ method: 'eth_accounts' });
-            // document.getElementById('status').textContent = `Connected: ${accounts[0]}`;
-            document.getElementById('connectWallet').textContent = "Connected";
-        } catch (error) {
-            console.error(error);
-            document.getElementById('status').textContent = 'Connection failed.';
-        }
-    } else {
-        document.getElementById('status').innerText = 'MetaMask is not installed.';
-    }
-});
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
