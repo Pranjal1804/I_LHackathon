@@ -13,7 +13,7 @@ A decentralized platform for managing train and flight ticket bookings using blo
 ## Technology Stack
 
 - **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Django
+- **Backend**: NOde.js , Express.js
 - **Blockchain**: Ethereum, Solidity
 - **Database**: SQL
 
@@ -21,11 +21,9 @@ A decentralized platform for managing train and flight ticket bookings using blo
 
 ### Prerequisites
 
-- Python 3.8 or higher
 - Node.js and npm
 - MetaMask Wallet
 - Ganache (or any Ethereum test network)
-- Django
 
 ### Steps
 
@@ -35,33 +33,27 @@ A decentralized platform for managing train and flight ticket bookings using blo
    cd blockchain-ticket-management
    ```
 
-2. Install backend dependencies:
-   ```bash
-   pip install -r requirements.txt
    ```
 
-3. Install frontend dependencies:
+2. Install frontend dependencies:
    ```bash
    npm install
    ```
 
-4. Compile the Solidity smart contracts:
+3. Compile the Solidity smart contracts:
    ```bash
-   npx hardhat compile
+   npm truffle compile
    ```
 
-5. Deploy the smart contracts:
+4. Deploy the smart contracts:
    ```bash
-   npx hardhat run scripts/deploy.js --network localhost
+    npm truffle migrate 
    ```
 
-6. Configure Django settings with your database and blockchain details.
-
-7. Run the Django development server:
-   ```bash
-   python manage.py runserver
+5. Start the Node Server
+      ```bash
+    node server.js
    ```
-
 
 ## Usage
 
