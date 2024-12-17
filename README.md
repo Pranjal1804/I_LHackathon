@@ -33,8 +33,6 @@ A decentralized platform for managing train and flight ticket bookings using blo
    cd blockchain-ticket-management
    ```
 
-   ```
-
 2. Install frontend dependencies:
    ```bash
    npm install
